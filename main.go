@@ -14,7 +14,7 @@ func do(conn net.Conn) {
 		log.Fatal(err)
 	}
 
-	time.Sleep(1 * time.Second)
+	time.Sleep(8 * time.Second)
 
 	conn.Write([]byte("HTTP/1.1 200 OK \r\n\r\nHello, World!\r\n"))
 
@@ -33,6 +33,6 @@ func main() {
 			log.Fatal(err)
 		}
 
-		do(conn)
+		go do(conn)
 	}
 }
